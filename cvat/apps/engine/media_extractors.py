@@ -680,7 +680,7 @@ def _normalize_image(img, min_percent = 0, max_percent = 99, gamma = 1.2):
     vmin = np.percentile(img, min_percent)
     vmax = np.percentile(img, max_percent)
     img = ((img - vmin) / (vmax - vmin))
-    img[img &lt; 0] = 0
+    img[img < 0] = 0
     img = pow(img, gamma) * 255
     img = np.clip(img, 0, 255)
     return img.astype(np.uint8)
